@@ -4,6 +4,7 @@ import com.cybertek.utilities.Driver;
 import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.junit.Assert;
 
 public class GoogleStepDefinitions {
@@ -36,6 +37,11 @@ public class GoogleStepDefinitions {
     }
 
 
+    @When("User search apple")
+    public void userSearchApple() {
+    }
 
-
+    @Then("User should see apple in the title")
+    public void userShouldSeeAppleInTheTitle() {
+    }
 }
