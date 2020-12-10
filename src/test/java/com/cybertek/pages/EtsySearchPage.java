@@ -8,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 public class EtsySearchPage {
 
     public EtsySearchPage(){
+
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
