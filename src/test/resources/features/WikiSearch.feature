@@ -1,10 +1,17 @@
-Feature: Wiki Title Verification
+Feature: Wikipedia title verification
 
-  Background: User is on the wiki home page
-    Given User is on Wikipedia home page
+
+
+  Background:
+    Given User is on the Wikipedia home page
+    When User searches "Steve Jobs" in the wiki search box
+
 
   @wiki
-  Scenario:Search functionality title verification
-    When User searches "Steve Jobs" in the wiki search page
-    Then User sees "Steve Jobs" is in the wiki tile
-    # Follow POM
+  Scenario: Wiki search functionality title verification
+
+    Then User should sees "Steve Jobs" in the wiki tile
+
+@wiki2
+    Scenario: Search functionality header verification
+      Then User should see "Steve Jobs" in the main header

@@ -8,7 +8,22 @@ Feature: Search
   Scenario: Google default title verification
     Then User should see the title is google
 
-    @wip  #work in progress
-    Scenario: Google title verification after search
-      When User search apple
-      Then User should see apple in the title
+  @wip  #work in progress
+  Scenario: Google title verification after search
+    When User search apple
+    Then User should see apple in the title
+
+
+    @googleTable
+  Scenario: Google search page footer links verification
+    Then User should see six links in the footer
+      | Advertising      |
+      | Business         |
+      | How Search Works |
+      | Privacy          |
+      | Terms            |
+      | Settings         |
+
+       #command + option + L
+       #contrl + alt + L
+
