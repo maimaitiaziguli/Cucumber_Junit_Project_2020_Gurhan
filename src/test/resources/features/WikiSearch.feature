@@ -1,17 +1,23 @@
-Feature: Wikipedia title verification
 
+Feature: Wikipedia title verification
 
 
   Background:
     Given User is on the Wikipedia home page
-    When User searches "Steve Jobs" in the wiki search box
+
+  @wikiScenarioOutline
+  Scenario Outline: Wiki search functionality title verification
+    When User searches "<searchValue>" in the wiki search page
+    Then User should see "<expectedTitle>" in the wiki title
+    Then User should see "<expectedMainHeader>" in the main header
+    Then User should see "<expectedImageHeader>" in the image header
 
 
-  @wiki
-  Scenario: Wiki search functionality title verification
-
-    Then User should sees "Steve Jobs" in the wiki tile
-
-@wiki2
-    Scenario: Search functionality header verification
-      Then User should see "Steve Jobs" in the main header
+    Examples:
+      | searchValue     | expectedTitle   | expectedMainHeader | expectedImageHeader |
+      | Steve Jobs      | Steve Jobs      | Steve Jobs         | Steve Jobs          |
+      | John Travolta   | John Travolta   | John Travolta      | John Travolta       |
+      | Albert Einstein | Albert Einstein | Albert Einstein    | Albert Einstein     |
+      | Bruce Lee       | Bruce Lee       | Bruce Lee          | Bruce Lee           |
+      | Thomas Edison   | Thomas Edison   | Thomas Edison      | Thomas Edison       |
+      | Bill Gates      | Bill Gates      | Bill Gates         | Bill Gates          |

@@ -10,10 +10,14 @@ public class WikiSearchPage {
      PageFactory.initElements(Driver.getDriver(),this);
  }
 
- @FindBy(id = "searchInput")
+ @FindBy(xpath = "//input[@name='search']")
     public WebElement searchBox;
 
 @FindBy(css = "h1[class='firstHeading'")
     public WebElement mainHeader;
+
+@FindBy(className ="fn")
+    public WebElement imageHeaderAfterSearch;
+
 
 }

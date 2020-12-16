@@ -7,13 +7,13 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
 
 import java.util.List;
 
 public class GoogleStepDefinitions {
 
     GoogleSearchPage googleSearchPage = new GoogleSearchPage();
-
 
 
     @Given("User is on the search page")
@@ -24,8 +24,6 @@ public class GoogleStepDefinitions {
         Driver.getDriver().get("https://www.google.com");
 
     }
-
-
 
 
     @Then("User should see the title is google")
@@ -77,6 +75,25 @@ Assert.assertEquals(actualSize,expectedSize);
 
     }
 
+
+    @Given("User is on the google search page")
+    public void userIsOnTheGoogleSearchPage() {
+        Driver.getDriver().get("https://google.com");
+    }
+
+    @When("User search {string}")
+    public void userSearch(String searchValue) {
+        // Sending value in to search box using page object
+        googleSearchPage.searchBox.sendKeys(searchValue + Keys.ENTER);
+    }
+
+    @Then("User should see {string} in the title")
+    public void userShouldSeeInTheTitle(String expectedTitlee) {
+
+
+        String actualTitle = Driver.getDriver().getTitle();
+        Assert.assertTrue(actualTitle.contains(expectedTitlee));
+    }
 
 
 }
