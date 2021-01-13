@@ -1,5 +1,6 @@
 package com.cybertek.utilities;
 
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -7,9 +8,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.concurrent.TimeUnit;
 
-
 public class Driver {
 
+    private static ThreadLocal<WebDriver> driverPool = new ThreadLocal<>();
 
 
     private Driver(){}
@@ -47,5 +48,8 @@ public class Driver {
             driver = null;
         }
     }
+
+
+
 
 }
