@@ -29,7 +29,7 @@
 
                 <configuration>
                     <includes>
-                        <include>**CucumberRunner.java</include>
+                        <include>**CukesRunner.java</include>
                     </includes>
                 </configuration>
 
